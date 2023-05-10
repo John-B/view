@@ -1,0 +1,48 @@
+{% if posts.pagination.pages is not empty %}
+    <nav class="pagination">
+        <ul class="pagination__list">
+
+            {# Previous #}
+            {% if posts.pagination.prev %}
+                <li class="prev btn">
+                    <a href="{{ posts.pagination.prev.link }}">◀</a>
+                </li>
+            {% else %}
+                {# <li class="prev btn disabled">
+                    <button disabled>◀</button>
+                </li> #}
+            {% endif %}
+
+            {# Pages #}
+            {% for page in posts.pagination.pages %}
+                {% if page.link %}
+                    <li>
+                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                    </li>
+                {% else %}
+                    <li class="{{ page.current ? 'current' }}">
+                        <span class="{{ page.class }}">{{ page.title }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {# Next #}
+            {% if posts.pagination.next %}
+                <li class="next btn">
+                    <a href="{{ posts.pagination.next.link }}">▶</a>
+                </li>
+            {% else %}
+                <li class="next btn disabled">
+                    <button disabled>▶</button>
+                </li>
+            {% endif %}
+            {% if show_all_link %}
+                <li>
+                    <a href="?limit=all" class="all">
+                        {{ __('Show all', 'view' )}} <strong>{{ posts.found_posts }}</strong> {{ post_type_name }}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

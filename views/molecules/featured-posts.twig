@@ -1,0 +1,20 @@
+<section id="article-list">
+    <ul>
+        {% for post in posts %}
+            <li>
+                <span>
+                    {% if 'grant' == post.post_type %}
+                        Grants
+                    {% elseif 'post' == post.post_type %}
+                        Blog: Give & Learn
+                    {% else %}
+                        Misc
+                    {% endif %}
+                </span>
+                <h2>
+                    <a href="{{ post.link }}">{{ post.title }}</a>
+                </h2>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

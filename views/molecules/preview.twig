@@ -1,0 +1,23 @@
+<li class="preview preview--{{ post.post_type }} {{ loop.index is odd ? 'odd' : 'even' }}" id="preview{{ post.ID }}">
+	{% block content %}
+		<article>
+			<span class="date">{{ post.date('m/d/Y') }}</span>
+			<span class="category">Blog: Give &amp; Learn</span>
+			<h1>
+				<a href="{{ post.link }}">{{ post.title }}</a>
+			</h1>
+			{% if post.get_thumbnail %}
+				<a href="{{ post.link }}">
+					<img src="{{ post.thumbnail().src }}" alt="{{ post.title }}"/>
+				</a>
+			{% endif %}
+			<p>{{ post.preview|e('wp_kses_post') }}</p>
+			<span class="topics">
+				<span>Topics:</span>
+				{% for tag in post.tags %}
+					<a href="/blog/?topic={{ tag.slug }}">{{ tag.name }}{{ loop.last ? '': ',' }}</a>
+				{% endfor %}
+			</span>
+		</article>
+	{% endblock %}
+</li>

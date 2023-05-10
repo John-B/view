@@ -1,0 +1,27 @@
+{# see `archive.twig` for an alternative strategy of extending templates #}
+{% extends "base.twig" %}
+
+{% block intro %}
+	<header class="intro__header">
+		<div id="breadcrumbs" class="">
+			<span>
+				<a href="/">{{ _e('About Us', 'view') }}></a>
+				{{ _e('Press', 'view') }}
+			</span>
+		</div>
+		<h1 class="intro__heading">
+			<span>{{ _e("Recent press about our work", 'view') }}</span>
+		</h1>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<div class="posts-list container">
+		<ol>
+			{% for post in posts %}
+				{% include ["molecules/preview-#{post.post_type}.twig", 'molecules/preview.twig'] %}
+			{% endfor %}
+		</ol>
+		{% include 'molecules/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	</div>
+{% endblock %}

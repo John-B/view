@@ -1,0 +1,136 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!-->
+	<html
+	class="no-js no-svg" {{ site.language_attributes }}> <!--<![endif]-->
+	{% block html_head_container %}
+		<head>
+			<meta charset="{{ site.charset }}"/>
+			<meta name="description" content="{{ site.description }}">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="viewport" content="width=device-width">
+			<meta
+			name="author" content="Good Ventures">
+			{# <link rel="author" href="{{ site.theme.link }}/humans.txt"/> #}
+			<meta name="robots" content="index, follow">
+			<meta property="og:title" content="Good Ventures">
+			<meta property="og:type" content="article">
+			<meta property="og:url" content="https://www.goodventures.org/">
+			<meta property="og:site_name" content="Good Ventures">
+			<meta property="fb:admins" content="304394">
+			<meta
+			property="og:description" content="{{ site.description }}">
+			{#
+				<meta property="og:image" content="{{ site.theme.uri }}/assets/images/logo-goodventures-458x417.png">
+				<meta property="og:image" content="https://www.goodventures.org/images/grants/Jan_29_2019_-_Sherlock_Biosciences_-_0015a_GV.jpg">
+				<meta property="og:image" content="https://www.goodventures.org/images/grants/Sankalpa.jpg">
+				<meta property="og:image" content="https://www.goodventures.org/uploads/documents/love_is_better.jpg">
+			#}
+
+			<link rel="pingback" href="{{ site.pingback_url }}"/>
+			<link
+			rel="profile" href="http://gmpg.org/xfn/11">
+
+			{#
+			<!--[if gt IE 8]><!-->
+				<link rel="stylesheet" type="text/css" media="screen" href="<?php echo esc_url( get_stylesheet_directory_uri() ) . '/assets/legacy.webfonts.css?v=1520962737'; ?>">
+				<link rel="stylesheet" type="text/css" media="screen" href="<?php echo esc_url( get_stylesheet_directory_uri() ) . '/assets/legacy.styles.css?v=1601068145'; ?>">
+			<!--<![endif]-->
+
+			<!--[if gt IE 8]><!-->
+				<!-- <link rel="stylesheet" type="text/css" media="screen" href="/themes/site_themes/default_site/styles/css/additional-styles.css?v=1520962736"> -->
+				<link rel="stylesheet" type="text/css" media="screen" href="<?php echo esc_url( get_stylesheet_directory_uri() ) . '/assets/legacy.additional-styles.css?v=1520962736'; ?>">
+			<!--<![endif]-->
+
+			<!--[if gt IE 7]><!-->
+			<script src="https://www.goodventures.org/themes/site_themes/default_site/js/vendor/modernizr.custom.49247.js"></script>
+			<!--<![endif]-->
+			#}
+			{{ function( 'wp_head' ) }}
+			{% block head %}{% endblock %}
+		</head>
+	{% endblock %}
+	<body class="{{ body_class }}" data-template="base.twig" data-scroll-enabled="true">
+		<div class="main wrapper">
+			<a class="skip-link screen-reader-text" href="#content">
+				<span>{{ _e( 'Skip to content', 'view' ) }}</span>
+			</a>
+			{% block header %}
+				{% include 'organisms/header.twig' %}
+			{% endblock %}
+
+			<section id="content" role="main" class="content-wrapper">
+				{% block intro %}
+					<div class="intro">
+						<header class="intro__header">
+							{% if breadcrumbs %}
+								<div id="breadcrumbs" class="">
+									{% for breadcrumb in breadcrumbs %}
+										{% if 1 < loop.length and not loop.last %}
+											<a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+											<span>></span>
+										{% endif %}
+										{% if loop.last %}
+											<span>{{ breadcrumb.title }}</span>
+										{% endif %}
+									{% endfor %}
+								</div>
+							{% endif %}
+							<h1 class="intro__heading">{{ post.intro.heading ?: post.title }}</h1>
+						</header>
+						{% if post.intro.description %}
+							<p>{{ post.intro.description|e('wp_kses_post') }}</p>
+						{% endif %}
+						{% include "atoms/featured-image.twig" with [post] %}
+					</div>
+				{% endblock %}
+
+				{% block content %}{% endblock %}
+			</section>
+
+			{% block footer %}
+				{% include 'organisms/footer.twig' %}
+			{% endblock %}
+		</div>
+		<!-- .wrapper -->
+	</body>
+	<div id="fb-root"></div>
+	<script>
+		(function (d, s, id)
+		{
+			var js,
+			fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+
+			return;
+
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script type="text/javascript">
+		// https://www.addthis.com/academy/the-addthis_config-variable/
+		var addthis_config = {
+			ui_click: false,
+			ui_use_css: false
+		}
+	</script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-512bde93421261ff"></script>
+	<script>
+		var _gaq = [[
+		'_setAccount', 'UA-33428745-1'
+		], ['_trackPageview']];
+		(function (d, t) {
+			var g = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];
+			g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g, s)
+		}(document, 'script'));
+	</script>
+	{{ function('wp_footer') }}
+</html>

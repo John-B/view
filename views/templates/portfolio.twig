@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block intro %}
+	<div class="intro">
+		<header class="intro__header">
+			
+				<div id="breadcrumbs" class="">
+			<span>
+				<a href="/">{{ _e('Our Portfolio', 'view') }}</a>
+			</span>
+		</div>
+		
+			<h1 class="intro__heading">{{ post.intro.heading ?: post.title }}</h1>
+		</header>
+		{% if post.intro.description %}
+			<p>{{ post.intro.description|e('wp_kses_post') }}</p>
+		{% endif %}
+		{% include "atoms/featured-image.twig" with [post] %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	{% embed "molecules/topics-filter.twig" %}{% endembed %}
+	<section class="landing-content portfolio">
+		<ol>
+			{% for post in posts %}
+				{% embed "molecules/preview-grant.twig" with {post: post} %}{% endembed %}
+			{% endfor %}
+		</ol>
+		{% include 'molecules/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 1}) } %}
+	</section>
+{% endblock %}

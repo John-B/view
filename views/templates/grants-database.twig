@@ -1,0 +1,87 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="grants-database">
+
+		<a href="/our-portfolio/grants-database/?download">Download database as .CSV</a>
+
+		<table class="sortable-table">
+
+			<colgroup>
+				<col class="column-grant">
+				<col class="column-organization">
+				<col class="column-topic">
+				<col class="column-date">
+				<col class="column-amount">
+			</colgroup>
+			<thead>
+				<tr>
+					<th
+						class="{{ 'title' == orderby ? 'orderby ' ~ order|lower : '' }}"
+						data-sort="/our-portfolio/grants-database?orderby=title&amp;order={{ order_opposite }}">
+						<span>Grant</span>
+					</th>
+					<th
+						class="{{ 'organization' == orderby ? 'orderby ' ~ order|lower : '' }}"
+						data-sort="/our-portfolio/grants-database?orderby=organization&amp;order={{ order_opposite }}">
+						<span>Organization</span>
+					</th>
+					<th
+						class="{{ 'topic' == orderby ? 'orderby ' ~ order|lower : '' }}"
+						data-sort="/our-portfolio/grants-database?orderby=topic&amp;order={{ order_opposite }}">
+						<span>Topic</span>
+					</th>
+					<th
+						class="{{ 'date_of_award' == orderby ? 'orderby ' ~ order|lower : '' }}"
+						data-sort="/our-portfolio/grants-database?orderby=date_of_award&amp;order={{ order_opposite }}">
+						<span>Date of Award</span>
+					</th>
+					<th
+						class="{{ 'amount' == orderby ? 'orderby ' ~ order|lower : '' }}"
+						data-sort="/our-portfolio/grants-database?orderby=amount&amp;order={{ order_opposite }}">
+						<span>Amount</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for post in posts %}
+					<tr data-org="{{ post.org_slug_for_sort }}" data-topic="{{ post.tag_slug_for_sort }}">
+						<td class="grant-column" >
+							<a href="{{ post.link }}">{{ post.title }}</a>
+						</td>
+						<td class="organization-column">
+							{% if post.organization is not empty %}
+								{% if post.organization.link %}
+									<a href="{{ post.organization.link }}"><span>{{ post.organization.name }}</span></a>
+								{% else %}
+									<span>{{ post.organization.name }}</span>
+								{% endif %}
+							{% endif %}
+						</td>
+						<td class="topic-column">
+							<a href="/our-portfolio/?topic={{ post.primary_tag.slug }}">
+								<span>{{ post.primary_tag.name }}</span>
+							</a>
+						</td>
+						<td>
+							<span>{{ post.date_of_award }}</span>
+						</td>
+						<td class="amount-column">
+							<span>${{ post.amount }}</span>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="grant-pagination">
+		{% include 'molecules/pagination.twig' with {
+			pagination: posts.pagination({ 
+				show_all: false,
+				mid_size: 3,
+				 end_size: 1 
+			}),
+			post_type_name: 'grants',
+			} %}
+	</div>
+{% endblock %}

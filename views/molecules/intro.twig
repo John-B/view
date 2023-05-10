@@ -1,0 +1,15 @@
+<div class="intro">
+	<header class="intro__header">
+		<div id="breadcrumbs" class="">
+			{% for breadcrumb in intro.breadcrumbs %}
+				{% if breadcrumb.url %}
+                    <a href="{{ breadcrumb.url }}"><span>{{ breadcrumb.title }}</span></a>
+                {% else %}
+                    <span>{{ breadcrumb.title }}</span>
+                {% endif %}
+			{% endfor %}
+		</div>
+		<h1 class="intro__heading">{{ intro.heading }}</h1>
+	</header>
+	<p>{{ intro.description }}</p>
+</div>

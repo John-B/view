@@ -1,0 +1,71 @@
+{% extends "base.twig" %}
+
+{% block intro %}
+	<div class="intro">
+		<header class="intro__header">
+			<div id="breadcrumbs" class="">
+				<a href="/our-portfolio">Our Portfolio</a> &gt; Organizations
+			</div>
+			<h1 class="intro__heading">{{ term.data.name }}</h1>
+            {% include "molecules/entry-meta.twig" %}
+		</header>
+		{% if post.show_entry_meta %}
+			{% include "molecules/entry-meta.twig" %}
+		{% endif %}
+		{% if post.intro.description %}
+			<p>{{ post.intro.description|e('wp_kses_post') }}</p>
+		{% endif %}
+		{% if post.thumbnail %}
+			<figure class="banner ">
+				<img src="{{ post.featured_image.src }}" alt="{{ post.featured_image.alt }}" width="720" height="400">
+				<figcaption>{{ post.featured_image.caption }}</figcaption>
+			</figure>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	<article class="organization organization--{{ XXXX }}" id="post{{ post.ID }}">
+		<figure class="organization__banner banner">
+			<a href="https://www.goodventures.org/our-portfolio/organizations/{{ term.data.slug }}">Original (remove me later)</a>
+			{% if term.meta.image %}
+				<img src="{{ term.meta.image.src }}" alt="{{ term.meta.image.alt }}">
+				<figcaption>{{ term.meta.image.caption }}</figcaption>
+			{% endif %}
+		</figure>
+		<div class="organization__content">
+			<div class="organization__primary">
+				<div class="organization-description">
+					{{ term.meta.content }}
+					{% if term.meta.links %}{% endif %}
+					<h3>Read more:</h3>
+					<ul>
+					{% for link in term.meta.read_more_links %}
+						<li><a href="{{ link.url ?: link.link.url }}" target="{{ link.target ?: link.link.target }}">{{ link.title ?: link.link.title }}</a></li>
+					{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="organization__secondary">
+				<aside class="related-grants">
+                    {% for grant in grants %}
+                        <h2>
+                            <a href="{{ grant.link }}">{{ grant.title }}</a>
+                        </h2>
+                        <dl class="grant-info">
+                            <dt>Award Date:
+                            </dt>
+                            <dd>{{ grant.date_of_award }}</dd>
+                            <dt>Amount:
+                            </dt>
+                            <dd>${{ grant.amount }}</dd>
+                        </dl>
+                    {% endfor %}
+				</aside>
+			</div>
+		</div>
+	</article>
+	{% if post.footnotes %}
+		{% include "molecules/footnotes.twig" with post.footnotes %}
+	{% endif %}
+{% endblock %}

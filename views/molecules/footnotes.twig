@@ -1,0 +1,16 @@
+<footer class="footnotes">
+	<h5>Footnotes</h5>
+	<ol class="footnotes-list">
+		{% for item in items %}
+			<li id="footnote-{{ loop.index }}">
+				<p>
+					<a href="#{{item.footnote_link }}" class="footnote-ref">
+						<sup>[{{ loop.index }}]</sup>
+					</a>
+					<span>{{ item.footnote }}</span>
+				</p>
+			</li>
+		{% endfor %}
+	</ol>
+	<hr>
+</footer>

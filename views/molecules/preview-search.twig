@@ -1,0 +1,12 @@
+{% if post.id %}
+<li>
+    <article>
+        <div class="breadcrumbs">{{ post.date|date('m/Y') }} - <a href="https://www.goodventures.org/our-portfolio">Our Portfolio</a> &gt; Grants</div>
+        <h1 class="search-results__title-group">
+            <a href="/blog/tag/{{ post.tags[0].slug }}" class="topic">{{ post.tags[0].name }}</a>
+            <a href="{{ post.link }}">{{ post.short_heading ? post.short_heading : post.title }}</a>
+        </h1>
+        <p>{{ post.preview|e('wp_kses_post') }}</p>
+    </article>
+</li>
+{% endif %}

@@ -1,0 +1,24 @@
+<header id="header">
+    <a href="{{ site.link }}" id="logo">
+        <img src="{{ site.theme.uri }}/assets/images/logo-goodventures.svg" alt="Good Ventures" class="fullsize">
+        <img src="{{ site.theme.uri }}/assets/images/logo-goodventures-alt.svg" alt="Good Ventures" class="horizontal">
+    </a>
+    <nav>
+        <span>Menu</span>
+        {% include "molecules/menu.twig" with { menu: menus.header_primary } %}
+    </nav>
+    <div id="search">
+        <form role="search" method="get" id="searchform" class="searchform" action="{{ site.link }}">
+            <fieldset>
+                <legend>Site Search</legend>
+                <label for="search-input">Search term</label>
+                <input type="text" placeholder="search this site" value="{{ function('get_search_query') }}" id="search-input" name="s">
+                <label for="search-submit">Submit</label>
+                <button type='submit' id="search-submit">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+    {% if sidebar %}
+        {% include "molecules/mini-about.twig" with sidebar only %}
+    {% endif %}
+</header>

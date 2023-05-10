@@ -1,0 +1,358 @@
+.main h3 + ul a[target="_blank"]:after,
+.slideshow a[target="_blank"] h2:after {
+  font-family: icomoon;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+
+  content: "\e007";
+  font-size: 65%;
+  padding-left: 5px;
+  position: relative;
+  top: -1px;
+}
+
+.footnotes-list p {
+  font-size: 13px;
+  line-height: 20px;
+  /* margin: 16px 0 0; */
+  margin-bottom: 1em;
+}
+
+.footnotes-list .footnote-ref + p {
+  margin-top: 0;
+}
+
+.footnotes-list blockquote p {
+  margin: 14px 0 0;
+}
+.footnotes-list blockquote p:first-child {
+  margin: 0;
+}
+
+#connect {
+  border: 0;
+}
+
+@media only screen and (min-width: 480px) {
+  #footer {
+    display: flex;
+    align-items: center;
+  }
+
+  #footer nav {
+    border-right: 1px solid #e8e6e3;
+  }
+}
+
+body.blog-post #header nav a[href~="/blog"] {
+  color: #63a40d;
+  background-color: #fff;
+}
+
+/*
+@media only screen and (min-width: 769px){
+  #header .supporter {
+      padding: 32px 26px 32px 32px;
+      width: 100%;
+      box-sizing: border-box;
+  }
+} */
+
+.landing-content ol .tile-img {
+  padding: 0;
+}
+
+.slideshow figure,
+figure.banner {
+  padding-bottom: 0;
+  margin: 0 0 22px;
+}
+
+.gradient-overlay {
+  position: relative;
+}
+
+#spotlight.gradient-overlay:after,
+figure.gradient-overlay:after,
+.tile-img.gradient-overlay:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+70,1f0d0d+70,1f0d0d+100&0+0,0+79,0.03+100 */
+
+  background: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(31, 13, 13, 0) 70%,
+    rgba(31, 13, 13, 0) 79%,
+    rgba(31, 13, 13, 0.03) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(31, 13, 13, 0) 70%,
+    rgba(31, 13, 13, 0) 79%,
+    rgba(31, 13, 13, 0.03) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(31, 13, 13, 0) 70%,
+    rgba(31, 13, 13, 0) 79%,
+    rgba(31, 13, 13, 0.03) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#081f0d0d',GradientType=0 );
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+70,1f0d0d+70,1f0d0d+100&0+0,0+74,0.07+100 */
+  /* background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(31,13,13,0) 70%, rgba(31,13,13,0) 74%, rgba(31,13,13,0.07) 100%); FF3.6-15 */
+  /* background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(31,13,13,0) 70%,rgba(31,13,13,0) 74%,rgba(31,13,13,0.07) 100%); Chrome10-25,Safari5.1-6 */
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(31,13,13,0) 70%,rgba(31,13,13,0) 74%,rgba(31,13,13,0.07) 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#121f0d0d',GradientType=0 ); IE6-9 */
+}
+
+h1,
+h2,
+h3 {
+  color: #8a8278;
+}
+
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 15px;
+  margin: 1.33em 0px;
+  font-family: ff-meta-web-pro, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #746e67;
+  line-height: 1.5em;
+}
+blockquote p,
+table th {
+  color: #746e67;
+}
+
+.entry-meta {
+  border-top: 0;
+  margin-top: 0;
+}
+
+.entry-meta-wrapper {
+  border-top: 1px solid #e8e6e4;
+  border-bottom: 1px solid #e8e6e4;
+}
+
+.entry-meta menu {
+  padding: 0;
+  height: 30px;
+  overflow: hidden;
+}
+
+.entry-meta .authored {
+  padding-left: 0;
+  line-height: normal;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  float: none;
+}
+
+.entry-meta time {
+  display: block;
+}
+
+#breadcrumbs,
+.breadcrumbs,
+#breadcrumbs a,
+.breadcrumbs a,
+.entry-meta {
+  color: #8a8278;
+}
+
+@media only screen and (min-width: 480px) {
+  .entry-meta {
+    /* border-top: 1px solid #e8e6e4; */
+    /* margin-top: 28px; */
+  }
+
+  .entry-meta time {
+    display: inline;
+  }
+
+  .entry-meta menu {
+    max-width: 244px;
+    white-space: nowrap;
+    float: left;
+    border: 0;
+  }
+
+  .entry-meta menu:first-child {
+    float: right;
+  }
+
+  .entry-meta .authored {
+    min-width: calc(100% - 145px);
+    box-sizing: border-box;
+    padding-right: 8px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 8px 0 0;
+    margin-bottom: -5px;
+  }
+
+  .entry-meta .comments a {
+    padding-right: 8px;
+    /* padding-left: 8px; */
+  }
+
+  .entry-meta .fb-like {
+    width: 79px;
+    padding-right: 1px;
+    float: left;
+  }
+
+  .entry-meta .addthis_button {
+    float: left;
+    text-align: right;
+    padding-right: 2px;
+    width: 63px;
+  }
+
+  .entry-meta .comments,
+  .entry-meta .fb-like {
+    border: 0;
+    position: relative;
+  }
+
+  .entry-meta .comments:after,
+  .entry-meta .fb-like:after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    width: 1px;
+    height: 20px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    background: #e8e6e4;
+  }
+}
+
+.intro__heading {
+  margin-bottom: 0.7em;
+}
+
+.post-tags {
+  display: block;
+  border-top: 1px solid #e8e6e4;
+  border-bottom: 1px solid #e8e6e4;
+}
+
+.post-tags .topics {
+  float: none;
+}
+
+.page .entry-meta-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.single-grant .authored,
+.tax-organization .authored,
+.page .authored {
+  opacity: 0;
+}
+
+.search .intro__header p,
+.search .intro__header h2,
+.search .intro__header h1 {
+  font-family: "Sabon W01";
+  color: #8a8278;
+}
+
+.search .intro__header h1 {
+  /* font-size: 2em; */
+}
+
+.search .intro__heading {
+  margin-top: 0.5rem;
+}
+
+.search ol.search-results h1 {
+  font-size: 18px;
+}
+
+.grant-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.grant-pagination .pagination {
+  margin-top: 0;
+}
+
+.grant-pagination .grants-view-all {
+  font-family: ff-meta-web-pro, sans-serif;
+  text-decoration: none;
+  margin-left: 1em;
+  color: #d0cdc9;
+  font-size: 14px;
+}
+.grant-pagination .grants-view-all:hover {
+  color: #63a40d;
+}
+
+.search-results .intro__heading h1 {
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 769px) {
+  .search-results #content {
+    padding: 94px 0% 42px 90px;
+    max-width: 600px;
+  }
+}
+
+.footnotes hr {
+  border-top: 2px solid #e8e6e4;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.page__content p a {
+  hyphens: none !important;
+}
+
+.article-with-image {
+  padding-top: 0 !important;
+}
+
+.page-template-other-investments .portfolio-list li {
+  padding-top: 1.1em !important;
+}
+
+.search h1 {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.search .search-results li:nth-child(1) {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid #e8e6e4;
+}

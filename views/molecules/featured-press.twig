@@ -1,0 +1,13 @@
+<section id="article-list">
+    <ul>
+        {% for post in post.featured_posts.posts %}
+            <li>
+                <span>{{ post.date( 'm/d/Y' ) }}</span>
+                <span>In the Media</span>
+                <h2>
+                    <a href="{{ post.external_link }}" target="_blank">{{ post.title }}</a>
+                </h2>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

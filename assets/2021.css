@@ -1,0 +1,117 @@
+/** privacy policy/contact/jobs breadcrumb removal **/
+.page-id-2379 #breadcrumbs,
+.page-id-2382 #breadcrumbs,
+.page-id-1615 #breadcrumbs {
+  display: none;
+}
+
+/** indv grant heading spacing fix **/
+.single-grant .intro__heading {
+  margin-bottom: 0.8em;
+}
+
+/** add icon for single grant read more items **/
+.newTab::after {
+  font-family: icomoon;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\e007";
+  font-size: 65%;
+  padding-left: 5px;
+  position: relative;
+  top: -1 px;
+}
+
+/** grant making approach/vision & values/ governance & press more space after headline **/
+.page-id-1576 .intro__heading,
+.page-id-1609 .intro__heading,
+.page-id-1633 .intro__heading {
+  margin-bottom: 0.9em;
+}
+.post-type-archive-press .intro__heading {
+  margin-bottom: 1.2em;
+}
+
+/** vision & values drop extra space before footer hr heavier **/
+.page-id-1609 hr:last-of-type {
+  margin-bottom: 0;
+  border-top: 2px solid #e8e6e4;
+}
+
+/** reset and reenable borders on press page **/
+.post-type-archive-press .posts-list li {
+  border: none;
+  border-bottom: 1px solid #e8e6e4;
+}
+.post-type-archive-press .posts-list li:last-of-type {
+  border: none;
+}
+
+/** remove read more from blog page **/
+.blog a.read-more {
+  display: none;
+}
+
+/** add border at end of jobs page **/
+.page-id-1615 article:last-of-type {
+  border-bottom: 2px solid #e8e6e4;
+}
+
+/** search results text enlarger / spacing **/
+.search-results p {
+  font-size: 16px;
+}
+
+.search-results header.intro__header {
+  margin-bottom: 2.5em !important;
+}
+
+/** search results title gap **/
+.search-results__title-group {
+  margin: 0 0 12px !important;
+}
+
+/** search results hide read more **/
+.search-results a.read-more {
+  display: none;
+}
+
+/** search results remove bottom border last result **/
+.search-results .posts-list li:last-of-type {
+  border-bottom: none;
+}
+
+/** no search results **/
+p.topIt {
+  margin-top: -1em;
+}
+.search-no-results #breadcrumbs h1 {
+  margin-top: 0;
+}
+
+/** home slider **/
+#home-feature li.cycle-slide {
+  border: 4px solid #62a30d;
+  background-color: #62a30d;
+  border-radius: 4px;
+}
+
+/** press divider **/
+ol.news-list {
+  border-top: 1px solid #e8e6e4;
+}
+
+/** portfolio hide show all button **/
+.post-type-archive a.all {
+  display: none;
+}
+
+/** single post **/
+.single-post.single-format-standard footer.footnotes hr {
+	display: none;
+}

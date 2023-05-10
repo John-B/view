@@ -1,0 +1,13 @@
+<div class="topics-filter">
+	<a href="#" class="">Topics</a>
+	<div>
+		<div style="display: none;">
+			<p>Click a topic below to filter results for this section.</p>
+			<ul>
+				{% for item in tags %}
+					<li><a href="{{ archive_link }}?topic={{ item.slug }}">{{ item.name }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

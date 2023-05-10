@@ -1,0 +1,23 @@
+{% extends "molecules/preview.twig" %}
+
+{% block content %}
+	<article class="{{ post.thumbnail ? 'article-with-image'}}">
+		<span class="article-date breadcrumbs">{{ post.date|date("m/d/Y") }}</span>
+		<span class="breadcrumbs">{{ post.press_type ? post.press_type.name : 'In the Media' }}</span>
+		<h1>
+			<a href="{{ post.external_link ? post.external_link : post.link }}" target="_blank">{{ post.title }}</a>
+		</h1>
+		{% if post.thumbnail %}
+			<figure>
+				<img src="{{ post.thumbnail.src }}" alt="" width="720" height="400">
+
+				<figcaption>{{ post.thumbnail.caption }}</figcaption>
+			</figure>
+		{% endif %}
+		{% if post.press_type and 'press-release' == post.press_type.slug %}
+			<p>{{ post.preview.length(500).read_more('').end('')}}</p>
+		{% else %}
+			<p>{{ post.content }}</p>
+		{% endif %}
+	</article>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% include "molecules/featured-press.twig" with { posts: post.featured_posts.posts } %}
+	{% include "molecules/spotlight.twig" with { spotlight: post.spotlight } %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block intro %}
+	{% include "molecules/intro.twig" %}
+{% endblock %}
+
+{% block content %}
+	{% embed "molecules/topics-filter.twig" with { tags: tags } only %}{% endembed %}
+	<div class="posts-list container">
+		<ol>
+			{% for post in posts %}
+				{% include ["molecules/preview-#{post.post_type}.twig", 'molecules/preview.twig'] %}
+			{% endfor %}
+		</ol>
+		{% include 'molecules/pagination.twig' with { pagination: posts.pagination( { show_all: false, mid_size: 3, end_size: 1 } ) } %}
+	</div>
+{% endblock %}

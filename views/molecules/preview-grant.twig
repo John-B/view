@@ -1,0 +1,21 @@
+{% extends "molecules/preview.twig" %}
+{% block content %}
+	<a href="{{ post.link }}">
+		<article>
+			<span class="tile-img gradient-overlay">
+				<img src="{{ post.get_thumbnail() ? post.thumbnail().src : "#{site.theme.uri}/assets/images/img-category-grantees.jpg" }}"
+					alt="" width="720" height="400">
+			</span>
+			<h1>{{ post.short_heading ?: post.title }}</h1>
+
+			<dl>
+				<dt>Award Date:</dt>
+				<dd>{{ post.date_of_award }}</dd>
+
+				<dt>Amount:</dt>
+				<dd>${{ post.amount  }}</dd>
+			</dl>
+			<span class="topics">{{ post.main_tag ? post.main_tag : post.tags[0].name }}</span>
+		</article>
+	</a>
+{% endblock %}

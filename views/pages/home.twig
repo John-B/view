@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block intro %}
+	<header class="intro__header">
+		<h1 class="intro__heading">{{ post.intro.heading ?: post.title }}</h1>
+	</header>
+{% endblock %}
+
+{% block content %}
+	<section id="home-feature" class="slideshow">
+		<ul>
+			{% for item in post.carousel %}
+				<li>
+					<img src="{{ item.image.src }}" alt="{{ item.image.alt }}">
+					<a href="{{ item.link.url }}">
+						<div>
+							<span class="category">{{ item.leadin }}</span>
+							<h2>{{ item.heading }}</h2>
+							<p>{{ item.description }}</p>
+						</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% include "molecules/featured-posts.twig" with { posts: featured_posts } %}
+	{% include "molecules/spotlight.twig" with { spotlight: post.spotlight } %}
+{% endblock %}

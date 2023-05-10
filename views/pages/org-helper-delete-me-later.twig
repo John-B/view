@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{# <pre>
+        {{ dump() }}
+    </pre> #}
+    <p>Total Orgs: {{ count_all_terms }}</p>
+    <p>Total Org profiles: {{ count_profile_terms }}</p>
+    {% for org in orgs %}
+        <h1>{{ org.name }}</h1>
+        <a href="{{ org.edit_link }}">Edit</a>
+        <a href="{{ org.profile_link }}">View Current</a>
+        <a href="{{ org.legacy_link }}">Leagacy</a>
+    {% endfor %}
+{% endblock %}

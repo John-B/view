@@ -1,0 +1,43 @@
+{# see `archive.twig` for an alternative strategy of extending templates #}
+{% extends "base.twig" %}
+
+{% block intro %}
+	{# {{ dump(posts.found_posts) }} #}
+	<header class="intro__header">
+		<div id="breadcrumbs" class="">
+			<span>{{ _e('Search Results', 'view') }}</span>
+		<h1>Search Results</h1>
+		</div>
+	</header>
+{% endblock %}
+
+{% block content %}
+	{% if posts.found_posts == 0 %}
+		<p class="topIt">
+			<span class="no-results">Your search for <b>"{{ search_query }}"</b> found <b>{{ posts.found_posts }}</b> search results.</span>
+		</p>
+		<div class="posts-list container">
+	{% else %}
+	<div class="posts-list container">
+			<p>
+				<span>Your search for <b>"{{ search_query }}"</b> found <b>{{ posts.found_posts }}</b> search results. </span>
+				<span>Showing results 
+					{{ posts_per_page * (posts.pagination.current - 1) + 1}} - 
+					{% if posts.pagination.current * posts_per_page > posts.found_posts %}
+						{{ posts.found_posts }}
+					{% else %}
+						{{ posts.pagination.current * posts_per_page }}
+					{% endif %}
+				
+				of {{ posts.found_posts }}.</span>
+			</p>
+		{% endif %}
+		<ol class="search-results">
+			{% for post in posts %}
+				{% include "molecules/preview-search.twig" with { post: post } only %}
+			{% endfor %}
+		</ol>
+
+		{% include 'molecules/pagination.twig' %}
+	</div>
+{% endblock %}
