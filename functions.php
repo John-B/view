@@ -188,6 +188,11 @@ function grants_database_download_csv() {
 	// Conditions to bail early
 	if ( 'our-portfolio/grants-database' !== $url_path ) return;
 	if ( ! isset( $_GET['download'] ) ) return;
+	header( 'Content-Description: File Transfer');
+	header( 'Content-Type: text/csv; charset=utf-8' );
+	header( 'Content-Disposition: attachment; filename=grants.csv' );
+	header( 'Pragma: no-cache' );
+	header( 'Expires: 0' );
 
 	// Add titles row
 	$titles = array(
@@ -238,11 +243,6 @@ function grants_database_download_csv() {
 	fclose( $csv );
 
 	// Set the headers and send the file
-	header( 'Content-Description: File Transfer');
-	header( 'Content-Type: text/csv; charset=utf-8' );
-	header( 'Content-Disposition: attachment; filename=grants.csv' );
-	header( 'Pragma: no-cache' );
-	header( 'Expires: 0' );
 	exit;
 }
 
@@ -295,4 +295,9 @@ function filter_blog_posts_fix_footnotes($content) {
 	}, $content );
 
 	return $content;
+}
+add_action( 'template_redirect', 'add_test_header' );
+function add_test_header()
+{
+  header('Expires:  Fri, 02 Dec 1990 16:00:00 GMT');
 }
