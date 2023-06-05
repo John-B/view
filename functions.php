@@ -198,7 +198,8 @@ function grants_database_download_csv() {
 	$titles = array(
 		'Grant',
 		'Organization',
-		'Topic',
+		'Main Topic',
+		'Topics',
 		'Date of Award',
 		'Amount'
 	);
@@ -228,12 +229,25 @@ function grants_database_download_csv() {
 
 			// Get the taxonomy post_tag terms
 			$topic_terms = get_the_terms( get_the_ID(), 'post_tag' );
-			$topics = join(", ", wp_list_pluck( $topic_terms, 'name' ));
+			$topic_names_array = wp_list_pluck( $topic_terms, 'name' );
+			$topic_id_array = wp_list_pluck( $topic_terms, 'term_id' );
+			$topic_names_string = join('; ', $topic_names_array);
+		        $main_topic_ignore_array = ["Potential GiveWell Top Charities", "Economic Empowerment", "Transformative Basic Science"];
 
+ 			// identify main topic, which is the least used term
+			    $term_count = 0;
+		            foreach ( $topic_id_array as $topic_id) {
+				$term = get_term($topic_id);
+				if(!in_array($term->name, $main_topic_ignore_array) && ($term->count <= $term_count || $term_count == 0)) {
+				  $term_count = $term->count;
+				  $main_topic = $term->name;
+		        	}  
+			    }
 			$grant = array(
 				get_the_title(),
 				$organizations,
-				$topics,
+				$main_topic,
+				$topic_names_string,
 				get_field( 'date_of_award' ),
 				"$" . number_format(str_replace(",", "", get_field( 'amount' )), 0)
 			);
