@@ -60,7 +60,7 @@
 						</td>
 						<td class="topic-column">
 							<a href="/our-portfolio/?topic={{ post.primary_tag.slug }}">
-								<span>{{ post.primary_tag.name }}</span>
+								<span>{{  post.terms('post_tag') | join('; ')  }}</span>
 							</a>
 						</td>
 						<td>
