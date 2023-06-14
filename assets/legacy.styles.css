@@ -56,7 +56,7 @@ pre {
   word-wrap: break-word;
 }
 #content:after,
-.entry-meta:after,
+. entry-meta:after,
 .hidden,
 .invisible {
   visibility: hidden;
@@ -926,7 +926,10 @@ button:hover {
     float: left;
     text-align: right;
   }
-}
+  .entry-meta,
+  .entry-meta menu {
+    width: unset;
+  }}
 @media screen and (min-width: 769px) {
   .supporter {
     display: none;
@@ -1799,7 +1802,7 @@ dl {
 }
 .entry-meta,
 .entry-meta menu {
-  /* width: 100%; */
+  width: 100%;
   position: relative;
 }
 #utilities .email:before {
@@ -1943,7 +1946,8 @@ dl dt {
 }
 .entry-meta .comments,
 .entry-meta .fb-like {
-  width: 37.5%;
+  /* width: 37.5%; */
+  width: 100px;
 }
 .entry-meta .fb-like:first-child {
   /* margin-left: 37.5%; */
@@ -2732,6 +2736,10 @@ form legend:focus {
   #connect {
     width: 15.1%;
     padding: 0;
+  }
+  .entry-meta .comments,
+  .entry-meta .fb-like {
+    width: 37.5%;
   }
 }
 @media only screen and (min-width: 769px) {

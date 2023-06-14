@@ -1,10 +1,12 @@
 <div class="entry-meta-wrapper">
     <div class="entry-meta">
-        <span class="authored">
-            <time>{{ post.date('m/d/Y') }}</time>
-            <span>by {{ display_authors() }}</span>
-        </span>
-        <menu>
+	{% if post.post_type == 'post' %}
+        	<span class="authored">
+	            <time>{{ post.date('m/d/Y') }}</time>
+        	    <span>by {{ display_authors() }}</span>
+	        </span>
+        {% endif %}
+	<menu>
             <div class="fb-like" data-send="false" data-layout="button_count" data-width="108" data-show-faces="false"></div>
             <span class='addthis_button'><span>Share</span></span>
         </menu>
