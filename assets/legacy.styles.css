@@ -1867,6 +1867,7 @@ dl {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  display: none;
 }
 .entry-meta menu {
   float: right;
@@ -2582,7 +2583,10 @@ form legend:focus {
   }
 }
 @media only screen and (min-width: 480px) {
-  #article-list,
+ .entry-meta .authored::after {
+    display: block;
+  }
+ #article-list,
   #spotlight {
     width: 45%;
     margin: 0;
