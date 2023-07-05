@@ -29,7 +29,7 @@
 					<th
 						class="{{ 'topic' == orderby ? 'orderby ' ~ order|lower : '' }}"
 						data-sort="/our-portfolio/grants-database?orderby=topic&amp;order={{ order_opposite }}">
-						<span>Topics</span>
+						<span>All Topics</span>
 					</th>
 					<th
 						class="{{ 'date_of_award' == orderby ? 'orderby ' ~ order|lower : '' }}"
@@ -59,9 +59,11 @@
 							{% endif %}
 						</td>
 						<td class="topic-column">
-							<a href="/our-portfolio/?topic={{ post.primary_tag.slug }}">
-								<span>{{  post.terms('post_tag') | join('; ')  }}</span>
-							</a>
+							{% for term in post.terms('post_tag') %}
+								<a href="{{ term.link }}">
+									<span>{{ term.name }}{{ not loop.last ? ';' }}</span>
+								</a>
+							{% endfor %}
 						</td>
 						<td>
 							<span>{{ post.date_of_award }}</span>
