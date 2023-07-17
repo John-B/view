@@ -159,7 +159,7 @@ table th {
 .entry-meta menu {
   padding: 0;
   height: 30px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .entry-meta .authored {

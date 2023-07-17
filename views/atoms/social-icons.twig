@@ -1,0 +1,13 @@
+{% set current_url = function('wp_get_shortlink', post.ID) %}
+
+ <div id="social-icons" class="social-icons" style="display:none;">
+            <a class="social-icon twitter" href="https://twitter.com/share?url={{ current_url }}" target="_blank">
+                <img src="{{ theme.path }}/assets/images/twitter.svg" />
+            </a>
+            <a class="social-icon facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ current_url }}" target="_blank">
+                <img src="{{ theme.path }}/assets/images/facebook.svg" />
+            </a>
+            <a class="social-icon rss-feed" href="/feed/">
+                <img src="{{ theme.path }}/assets/images/rss.svg" />
+            </a>
+        </div>

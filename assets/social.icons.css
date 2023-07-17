@@ -1,0 +1,89 @@
+:root {
+	--link-size: 27px; 
+	--trans-property: all 0.3s ease;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: #fafafa;
+}
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: white;
+  border: 1px solid #8a8278;
+  border-radius: 5px;
+  margin: 2px 0px;
+}
+.social-icon {
+	display: flex;
+	position: relative;
+	overflow: hidden; 
+	width: var(--link-size);
+	height: var(--link-size);
+	margin: 4px;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.12);
+	text-decoration: none;
+	transition: var(--trans-property);
+}
+.social-icon.facebook img {
+	margin: auto;
+	z-index: 1; 
+	transition: var(--trans-property);
+	width: 36%;
+}
+.social-icon.twitter img {
+	margin: auto;
+	z-index: 1; 
+	transition: var(--trans-property);
+	width: 100%;
+	pointer-events: none;
+}
+.social-icon.rss-feed img {
+	margin: 0 auto 2px;
+	z-index: 1; 
+	transition: var(--trans-property);
+	width: 48%;
+	pointer-events: all;
+}
+.social-icon:after {
+	content: "";
+	width: var(--link-size);
+	height: var(--link-size);
+	position: absolute;
+	transform: translate(0, var(--link-size));
+	border-radius: 50%;
+	transition: var(--trans-property);
+	pointer-events: none;
+}
+/* .social-icon.twitter:after {
+	background-color: #1da1f2;
+}
+.social-icon.github:after {
+	background-color: #24292e;
+}
+.social-icon.dribbble:after {
+	background-color: #ea4c89;
+}
+.social-icon.instagram:after {
+	background-color: #5851db;
+}
+.social-icon.facebook:after {
+	background-color: #1769ff;
+} */
+/*** Animations ***/
+.social-icon:hover {
+	transform: translateY(-4px);
+	box-shadow: 0px 4px 12px rgba(0,0,0,0.16);
+}
+.social-icon:hover i {
+	color: #fff;
+}
+.social-icon:hover:after {
+	transform: translate(0) scale(1.2);
+}
