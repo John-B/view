@@ -42,7 +42,7 @@
 		</div>
 	</article>
 
-	{% if post.footnotes %}
+	{% if post.footnotes.items %}
 		{% include "molecules/footnotes.twig" with post.footnotes  %}
 	{% endif %}
 
