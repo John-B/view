@@ -2859,7 +2859,8 @@ form legend:focus {
     height: 200px;
   }
   .no-inlinesvg #logo {
-    background: url(./images/logo-goodventures.png) center top no-repeat;
+    background: url(./images/logo-goodventures.png) center 67% no-repeat;
+    background-size: cover;
   }
   #logo:before {
     display: block;
