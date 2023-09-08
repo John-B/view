@@ -138,8 +138,9 @@ function add_custom_url_template_loader( $template ) {
  */
 add_action( 'init', 'add_grants_database_pagination' );
 function add_grants_database_pagination() {
+	// If we start the regex with our-portfolio/grants it conflicts with other rewrite rules so we omit the first element of the path.
 	add_rewrite_rule(
-		'our-portfolio/grants-database/page/?([0-9]{1,})/?$',
+		'grants-database/page/?([0-9]{1,})/?$',
 		'our-portfolio/grants-database/page/?paged=$matches[1]',
 		'top'
 	);

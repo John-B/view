@@ -13,7 +13,9 @@
  * @since   1.0
  */
 use Timber\Timber;
+use Timber\PostQuery;
+
 
 $context = Timber::context();
-
+$context['grant'] = new PostQuery();
 Timber::render( [ 'templates/grants-database.twig' ], $context );
