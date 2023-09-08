@@ -138,7 +138,9 @@ function add_custom_url_template_loader( $template ) {
  */
 add_action( 'init', 'add_grants_database_pagination' );
 function add_grants_database_pagination() {
-	// If we start the regex with our-portfolio/grants it conflicts with other rewrite rules so we omit the first element of the path.
+	// If we start the regex with our-portfolio/grants it conflicts with other rewrite rules so we 
+        // omit the first element of the path. WP treats this in $non_wp_rules and writes it to 
+        // .htaccess when permalinks are saved, so it will not work on nginx.
 	add_rewrite_rule(
 		'grants-database/page/?([0-9]{1,})/?$',
 		'our-portfolio/grants-database/page/?paged=$matches[1]',
