@@ -7,12 +7,16 @@
  * @since   1.0
  */
 
- use Timber\Timber;
+use Timber\Timber;
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$timber = new Timber();
 
 if ( ! class_exists( Timber::class ) ) {
 	add_action(
