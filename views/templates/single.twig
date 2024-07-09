@@ -26,7 +26,7 @@
 	<article class="post post-type--{{ post.post_type }}" id="post{{ post.ID }}">
 		<div class="post__wrapper">
 			<div class="post__content">
-				{{ post.content }}
+				{{ post.content|raw }}
 				{% if post.links %}
 					<h3>Read more:</h3>
 					<ul>
