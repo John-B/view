@@ -27,7 +27,6 @@
 {% block content %}
 	<article class="organization organization--{{ XXXX }}" id="post{{ post.ID }}">
 		<figure class="organization__banner banner">
-			<a href="https://www.goodventures.org/our-portfolio/organizations/{{ term.data.slug }}">Original (remove me later)</a>
 			{% if term.meta.image %}
 				<img src="{{ term.meta.image.src }}" alt="{{ term.meta.image.alt }}">
 				<figcaption>{{ term.meta.image.caption }}</figcaption>
