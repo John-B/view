@@ -16,7 +16,8 @@ use Timber\Timber;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$timber = new Timber();
+Timber::init();
+//$timber = new Timber();
 
 if ( ! class_exists( Timber::class ) ) {
 	add_action(
@@ -40,13 +41,13 @@ require_once __DIR__ . '/inc/wpseo_title.php';
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = [ 'views' ];
+ Timber::$dirname = [ 'views' ];
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
  * No prob! Just set this value to true
  */
-Timber::$autoescape = 'wp_kses_post';
+// Timber::$autoescape = 'wp_kses_post';
 
 /**
  * Enqueues
@@ -290,7 +291,7 @@ function display_authors() {
 }
 
 function add_to_twig( $twig ) {
-	$twig->addFunction( new \Timber\Twig_Function( 'display_authors', 'display_authors' ) );
+	$twig->addFunction( new Twig\TwigFunction( 'display_authors', 'display_authors' ) );
 	return $twig;
 }
 

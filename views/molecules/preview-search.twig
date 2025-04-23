@@ -6,7 +6,7 @@
             <a href="/blog/tag/{{ post.tags[0].slug }}" class="topic">{{ post.tags[0].name }}</a>
             <a href="{{ post.link }}">{{ post.short_heading ? post.short_heading : post.title }}</a>
         </h1>
-        <p>{{ post.preview|e('wp_kses_post') }}</p>
+        <p>{{ post.excerpt|e('wp_kses_post') }}</p>
     </article>
 </li>
 {% endif %}

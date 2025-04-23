@@ -7,9 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc
 {
     public static $files = array (
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        '89efb1254ef2d1c5d80096acd12c4098' => __DIR__ . '/..' . '/twig/twig/src/Resources/core.php',
+        'ffecb95d45175fd40f75be8a23b34f90' => __DIR__ . '/..' . '/twig/twig/src/Resources/debug.php',
+        'c7baa00073ee9c61edf148c51917cfb4' => __DIR__ . '/..' . '/twig/twig/src/Resources/escaper.php',
+        'f844ccf1d25df8663951193c3fc307c8' => __DIR__ . '/..' . '/twig/twig/src/Resources/string_loader.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -20,13 +25,9 @@ class ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc
         ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
-        ),
-        'C' => 
-        array (
-            'Composer\\Installers\\' => 20,
         ),
     );
 
@@ -37,11 +38,11 @@ class ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc
         ),
         'Timber\\' => 
         array (
-            0 => __DIR__ . '/..' . '/timber/timber/lib',
+            0 => __DIR__ . '/..' . '/timber/timber/src',
         ),
-        'Symfony\\Polyfill\\Php72\\' => 
+        'Symfony\\Polyfill\\Php81\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -51,36 +52,12 @@ class ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Composer\\Installers\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
-        ),
-    );
-
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/twig/cache-extension/lib',
-    );
-
-    public static $prefixesPsr0 = array (
-        'T' => 
-        array (
-            'Twig_' => 
-            array (
-                0 => __DIR__ . '/..' . '/twig/twig/lib',
-            ),
-        ),
-        'R' => 
-        array (
-            'Routes' => 
-            array (
-                0 => __DIR__ . '/..' . '/upstatement/routes',
-            ),
-        ),
     );
 
     public static $classMap = array (
-        'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -88,8 +65,6 @@ class ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit970427233e7279de3d5ec6bcc8c722cc::$classMap;
 
         }, null, ClassLoader::class);

@@ -1,48 +1,84 @@
 {% extends "base.twig" %}
 
 {# {% block intro %}
-	<header>
-		<div id="breadcrumbs">
-			<a href="https://www.goodventures.org/our-portfolio">Our Portfolio</a>
-			&gt; Other Investments
-		</div>
-		<h1>We also invest in for-profit ventures that show potential to improve human well-being at scale.</h1>
-	</header>
-	<p>Our goal is to improve the lives of others as much as we can. While our focus is grantmaking, what matters most to us is an organization’s potential for impact — not its tax status.</p>
+<header>
+    <div id="breadcrumbs">
+        <a href="https://www.goodventures.org/our-portfolio">Our Portfolio</a>
+        &gt; Other Investments
+    </div>
+    <h1>We also invest in for-profit ventures that show potential to improve human well-being at scale.</h1>
+</header>
+<p>Our goal is to improve the lives of others as much as we can. While our focus is grantmaking, what matters most to us is an organization’s potential for impact — not its tax status.</p>
 {% endblock %} #}
 
 {% block content %}
-	<ol class="portfolio-list">
-		{% for item in post.investments %}
-			<li class="article-with-image">
-				<article>
-					<h1>{{ item.content.heading }}</h1>
-					{% if item.image %}
-						<figure>
-							<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" width="720" height="400">
-						</figure>
-					{% endif %}
-					{% if item.content.description %}
-						<p>{{ item.content.description }}</p>
-					{% endif %}
-					<dl>
-						{% if item.content.date_of_investment %}
-							<dt>{{ __('Date of Investment:', 'view') }}</dt>
-							<dd>{{ item.content.date_of_investment }}</dd>
-						{% endif %}
-						{% if item.content.read_more %}
-							<dt>{{ __('Read More:', 'view') }}</dt>
-							<dd>
-								<a href="{{ item.content.read_more.url }}" target="{{ item.content.read_more.target }}">
-									<span>{{ item.content.read_more.title }}</span>
-								</a>
-							</dd>
-						{% endif %}
-					</dl>
-				</article>
-			</li>
-		{% endfor %}
-	</ol>
+    <ol class="portfolio-list">
+        {% for item in investments %}
+            <li class="article-with-image">
+                <article>
+                    <h1>{{ item.content.heading }}</h1>
+                    {% if item.image %}
+                        <figure>
+                            <img src="{{ item.image.src }}" alt="{{ item.image.alt }}" width="720" height="400">
+                        </figure>
+                    {% endif %}
+                    {% if item.content.description %}
+                        <p>{{ item.content.description }}</p>
+                    {% endif %}
+                    <dl>
+                        {% if item.content.date_of_investment %}
+                            <dt>{{ __('Date of Investment:', 'view') }}</dt>
+                            <dd>{{ item.content.date_of_investment }}</dd>
+                        {% endif %}
+                        {% if item.content.read_more %}
+                            <dt>{{ __('Read More:', 'view') }}</dt>
+                            <dd>
+                                <a href="{{ item.content.read_more.url }}" target="{{ item.content.read_more.target }}">
+                                    <span>{{ item.content.read_more.title }}</span>
+                                </a>
+                            </dd>
+                        {% endif %}
+                    </dl>
+                </article>
+            </li>
+        {% endfor %}
+    </ol>
+    <nav class="pagination">
+        <ul class="pagination__list">
+            {# Previous #}
+            {% if pagination.prev %}
+                <li class="prev btn">
+                    <a href="{{ pagination.prev.link }}">◀</a>
+                </li>
+            {% else %}
+                {# <li class="prev btn disabled">
+                    <button disabled>◀</button>
+                </li> #}
+            {% endif %}
 
-	{% embed "molecules/pagination.twig" %}{% endembed %}
+        {# Pages #}
+        {% for page in pagination.pages %}
+                 {% if page.link %}
+                    <li>
+                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                    </li>
+                {% else %}
+                    <li class="{{ page.current ? 'current' }}">
+                        <span class="{{ page.class }}">{{ page.title }}</span>
+                    </li>
+                {% endif %}
+        {% endfor %}
+
+            {# Next #}
+            {% if pagination.next %}
+                <li class="next btn">
+                    <a href="{{ pagination.next.link }}">▶</a>
+                </li>
+            {% else %}
+                <li class="next btn disabled">
+                    <button disabled>▶</button>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endblock %}

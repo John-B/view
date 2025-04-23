@@ -19,7 +19,7 @@ use Timber\Post;
 
 $context = Timber::context();
 
-$timber_post     = new Post();
+$timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
 
 $templates = [

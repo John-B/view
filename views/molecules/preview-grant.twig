@@ -3,7 +3,7 @@
 	<a href="{{ post.link }}">
 		<article>
 			<span class="tile-img gradient-overlay">
-				<img src="{{ post.get_thumbnail() ? post.thumbnail.src('thumbnail') : "#{site.theme.uri}/assets/images/img-category-grantees.jpg" }}"
+				<img src="{{ post.thumbnail ? post.thumbnail.src('thumbnail') : "#{site.theme.uri}/assets/images/img-category-grantees.jpg" }}"
 					alt="" />
 			</span>
 			<h1>{{ post.short_heading ?: post.title }}</h1>

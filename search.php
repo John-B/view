@@ -18,15 +18,12 @@ use Timber\Timber;
 use Timber\PostQuery;
 
 $templates = [ 'templates/search.twig' ];
+global $paged;
+if (!isset($paged) || !$paged) {
+    $paged = 1;
+}
 
 $context                        = Timber::context();
 $context['search_query']        = get_search_query();
-$context['posts']['pagination'] = Timber::get_pagination(
-	[
-		'show_all' => false,
-		'mid_size' => 3,
-		'end_size' => 1,
-	]
-);
 
 Timber::render( $templates, $context );

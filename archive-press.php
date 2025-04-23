@@ -16,15 +16,13 @@ use Timber\Timber;
 use Timber\PostQuery;
 use Timber\Post;
 
-$context          = Timber::context();
-$context['posts'] = new PostQuery();
-$context['posts']['pagination'] = Timber::get_pagination(
-	[
-		'show_all' => false,
-		'mid_size' => 1,
-		'end_size' => 1,
-	]
-);
+$context = Timber::context([
+    'posts' => Timber::get_posts([
+        'post_type' => 'press',
+        'posts_per_page' => 6,
+        'post_status' => 'publish',
+    ]),
+]);
 
 $templates        = [ 'templates/press.twig' ];
 Timber::render( $templates, $context );

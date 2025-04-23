@@ -64,12 +64,12 @@
 	{# <pre>
 		{{ dump(post.prev) }}
 	</pre> #}
-		{% if 'grant' == post_type_name %}
+		{# {% if 'grant' == post_type_name %}
 			<a href="{{ prev_post.link }}" class="previous-entry">Previous Grant</a>
 			<a href="{{ next_post.link }}" class="next-entry">Next Grant</a>
 		{% else %}
 			<a href="{{ post.prev.link }}" class="previous-entry">Previous {{ post_type_name ?: 'Post' }}</a>
-			<a href="{{ post.next.link }}" class="next-entry">Next {{ post_type_name ?: 'Post' }}</a>
-		{% endif %}
+			<a href="{{ post.next.link }}" class="next-entry">Next {{ post_type_name ?: 'Post' }}</a> 
+		{% endif %} #}
 	</nav>
 {% endblock %}

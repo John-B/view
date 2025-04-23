@@ -8,10 +8,10 @@
 			</h1>
 			{% if post.get_thumbnail %}
 				<a href="{{ post.link }}">
-					<img src="{{ post.thumbnail().src }}" alt="{{ post.title }}"/>
+					<img src="{{ post.thumbnail.src }}" alt="{{ post.title }}"/>
 				</a>
 			{% endif %}
-			<p>{{ post.preview|e('wp_kses_post') }}</p>
+			<p>{{ post.excerpt|e('wp_kses_post') }}</p>
 			<span class="topics">
 				<span>Topics:</span>
 				{% for tag in post.tags %}
