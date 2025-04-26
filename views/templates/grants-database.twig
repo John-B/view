@@ -44,17 +44,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for post in posts %}
+				{% for post in posts %} 
 					<tr data-org="{{ post.org_slug_for_sort }}" data-topic="{{ post.tag_slug_for_sort }}">
 						<td class="grant-column" >
 							<a href="{{ post.link }}">{{ post.title }}</a>
 						</td>
 						<td class="organization-column">
 							{% if post.organization is not empty %}
-								{% if post.organization.link %}
-									<a href="{{ post.organization.link }}"><span>{{ post.organization.name }}</span></a>
+ {% set slug = get_term(post.terms|first.id).link %}  
+ {# {{ dump(slug) }} #} 
+								{% if slug|length > 10  %}
+									<a href="{{ slug }}"><span>{{ post.terms|first.name }}</span></a>
 								{% else %}
-									<span>{{ post.organization.name }}</span>
+									<span>{{ post.organization }}</span>
 								{% endif %}
 							{% endif %}
 						</td>

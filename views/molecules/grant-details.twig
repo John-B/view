@@ -1,7 +1,8 @@
+ {% set slug = get_term(post.terms|first.id).link %}
 <dl>
 	<dt>Organization:
 	</dt>
-	<dd>{{ post.organization.name }}</dd>
+	<dd><a href="{{ slug }}">{{ post.terms|first.name }}</a></dd>
 	<dt>Award Date:
 	</dt>
 	<dd>{{ post.date_of_award }}</dd>

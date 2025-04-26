@@ -21,7 +21,7 @@ $queried = get_queried_object();
 
 $context = Timber::context();
 
-$grants = new PostQuery(
+$grants = Timber::get_posts(
 	[
 		'post_type' => 'grant',
 		'tax_query' => [
