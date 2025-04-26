@@ -50,13 +50,13 @@
 							<a href="{{ post.link }}">{{ post.title }}</a>
 						</td>
 						<td class="organization-column">
-							{% if post.organization is not empty %}
- {% set slug = get_term(post.terms|first.id).link %}  
- {# {{ dump(slug) }} #} 
+							{% if post.terms is not empty %}
+							    {% set slug = get_term(post.terms|first.id).link %}  
+							    {# {{ dump(post.terms) }}  #}
 								{% if slug|length > 10  %}
 									<a href="{{ slug }}"><span>{{ post.terms|first.name }}</span></a>
 								{% else %}
-									<span>{{ post.organization }}</span>
+									<span>{{ post.terms|first.name }}</span>
 								{% endif %}
 							{% endif %}
 						</td>
