@@ -12,7 +12,8 @@ use Timber\Post;
 
 $context = Timber::context();
 
-$timber_post = new Post();
+// $timber_post = new Post();
+$timber_post = Timber::get_post();
 $term_data   = [];
 $terms       = get_terms(
 	'organization',
