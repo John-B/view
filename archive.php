@@ -45,6 +45,10 @@ $context['tags'] = get_terms(
 	]
 );
 
-$context['posts'] = new PostQuery();
+// $context['posts'] = new PostQuery();
+// Get posts from default query.
+global $wp_query;
+
+$posts = Timber::get_posts( $wp_query );
 
 Timber::render( $templates, $context );
