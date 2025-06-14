@@ -17,7 +17,7 @@ use Timber\PostQuery;
 use Timber\Post;
 
 $context          = Timber::context();
-$context['posts'] = new PostQuery();
+// $context['posts'] = new PostQuery();
 $context['tags']  = get_terms(
 	[
 		'taxonomy'   => 'post_tag',
