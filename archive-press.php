@@ -13,16 +13,12 @@
  * @since   1.0
  */
 use Timber\Timber;
-use Timber\PostQuery;
-use Timber\Post;
 
-$context = Timber::context([
-    'posts' => Timber::get_posts([
-        'post_type' => 'press',
-        'posts_per_page' => 6,
-        'post_status' => 'publish',
-    ]),
-]);
+$context = Timber::context();
 
-$templates        = [ 'templates/press.twig' ];
-Timber::render( $templates, $context );
+Timber::render(
+	[
+		'templates/press.twig',
+	],
+	$context
+);
